@@ -1,7 +1,7 @@
 import { GraphqlService } from './graphql.service';
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { Product } from './product.entity';
-import { CreateProducDto, UpdateProductDto } from './dto/product.dto';
+import { CreateProductDto, UpdateProductDto } from './dto/product.dto';
 
 @Resolver(of => Product)
 export class GraphqlResolver {
@@ -14,7 +14,7 @@ export class GraphqlResolver {
 
   @Mutation(returns => Product)
   createProduct(
-    @Args('createProductDto') createProductDto: CreateProducDto,
+    @Args('createProductDto') createProductDto: CreateProductDto,
   ): Product {
     return this.graphqlService.create(createProductDto);
   }

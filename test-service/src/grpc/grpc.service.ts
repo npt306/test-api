@@ -9,13 +9,13 @@ interface Product {
 
 @Injectable()
 export class GrpcService {
-    private readonly products: Product[] = Array.from({ length: 100 }, (_, index) => ({
+    private readonly products: Product[] = Array.from({ length: 5 }, (_, index) => ({
             id: index + 1,
             name: `product${index + 1}`,
             des: `description${index + 1}`,
             price: (index + 1) * 100,
         }));
-    private idCounter = 101; // Bộ đếm để tạo ID tự động
+    private idCounter = 6; // Bộ đếm để tạo ID tự động
 
     create(product: Omit<Product, 'id'>): Product {
         const newProduct = { id: this.idCounter++, ...product };

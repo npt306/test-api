@@ -10,7 +10,7 @@ export interface Product {
 
 @Injectable()
 export class RestService {
-    private readonly products: Product[] = Array.from({ length: 100 }, (_, index) => ({
+    private readonly products: Product[] = Array.from({ length: 5 }, (_, index) => ({
         id: index + 1,
         name: `product${index + 1}`,
         des: `description${index + 1}`,
@@ -29,4 +29,26 @@ export class RestService {
         return product;
     }
 
+    createProduct(product: Omit<Product, 'id'>): Product {
+        const newProduct = { id: this.products.length + 1, ...product };
+        this.products.push(newProduct);
+        return newProduct;
+    }
+
+    updateProduct(id: number, product: Partial<Product>): Product {
+        const index = this.products.findIndex(product => product.id === id);
+        if (index === -1) {
+            throw new Error(`Product with id ${id} not found`);
+        }
+        this.products[index] = { ...this.products[index], ...product };
+        return this.products[index];
+    }
+
+    deleteProduct(id: number): void {
+        const index = this.products.findIndex(product => product.id === id);
+        if (index === -1) {
+            throw new Error(`Product with id ${id} not found`);
+        }
+        this.products.splice(index, 1);
+    }
 }

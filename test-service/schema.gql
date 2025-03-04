@@ -16,12 +16,12 @@ type Query {
 }
 
 type Mutation {
-  createProduct(createProductDto: CreateProducDto!): Product!
+  createProduct(createProductDto: CreateProductDto!): Product!
   updateProduct(updateProductDto: UpdateProductDto!): Product!
   removeProduct(id: Int!): Product!
 }
 
-input CreateProducDto {
+input CreateProductDto {
   name: String!
   des: String!
   price: Int!

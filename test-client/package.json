@@ -10,9 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.1",
+    "@grpc/grpc-js": "^1.12.6",
+    "@grpc/proto-loader": "^0.7.13",
+    "@nestjs/microservices": "^11.0.11",
     "@tailwindcss/vite": "^4.0.9",
+    "google-protobuf": "^3.21.4",
+    "graphql": "^16.10.0",
+    "grpc-web": "^1.5.0",
+    "grpc-web-client": "^0.7.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "rxjs": "^7.8.2",
     "tailwindcss": "^4.0.9"
   },
   "devDependencies": {

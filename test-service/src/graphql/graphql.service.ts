@@ -1,19 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { Product } from './product.entity';
-import { CreateProducDto, UpdateProductDto } from './dto/product.dto';
+import { CreateProductDto, UpdateProductDto } from './dto/product.dto';
 
 @Injectable()
 export class GraphqlService {
-    private readonly products: Product[] = Array.from({ length: 100 }, (_, index) => ({
+    private readonly products: Product[] = Array.from({ length: 5 }, (_, index) => ({
         id: index + 1,
         name: `product${index + 1}`,
         des: `description${index + 1}`,
         price: (index + 1) * 100,
     }));
 
-    private idCounter = 101;
+    private idCounter = 6;
 
-    create(createProductInput: CreateProducDto): Product {
+    create(createProductInput: CreateProductDto): Product {
         const product: Product = {
             id: this.idCounter++,
             ...createProductInput,
