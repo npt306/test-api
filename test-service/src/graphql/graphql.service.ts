@@ -11,7 +11,7 @@ export class GraphqlService {
         price: (index + 1) * 100,
     }));
 
-    private idCounter = 1001;
+    private idCounter = 101;
 
     create(createProductInput: CreateProducDto): Product {
         const product: Product = {
