@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { HeroServiceClient } from './HeroServiceClientPb';
 import { HeroById } from './hero_pb';
 
-const client = new HeroServiceClient('http://localhost:50051'); // Địa chỉ của proxy (Envoy) chuyển tiếp tới gRPC server
+const client = new HeroServiceClient('http://localhost:8080'); // Địa chỉ của proxy (Envoy) chuyển tiếp tới gRPC server
 
 function App() {
   const [heroName, setHeroName] = useState<string>('');

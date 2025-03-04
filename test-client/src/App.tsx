@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ProductServiceClient } from './proto/ProductsServiceClientPb';
-import { Product  } from './proto/products_pb';
-import * as productsPb from './proto/products_pb';
+// import { ProductServiceClient } from './proto/ProductsServiceClientPb';
+// import { Product  } from './proto/products_pb';
+// import * as productsPb from './proto/products_pb';
 
-const client = new ProductServiceClient('http://localhost:5000', null, null);
+// const client = new ProductServiceClient('http://localhost:5000', null, null);
 
 interface ProductObj  {
   id: number;
@@ -58,20 +58,20 @@ function App() {
         const json = await response.json();
         setProducts(json.data.products);
       } else if (protocol === 'grpc') {
-        const request = new productsPb.Empty()
-        client.getProducts(request, {}, (err, response) => {
-          if (err) {
-            console.error('Lỗi khi lấy sản phẩm qua gRPC:', err);
-            return;
-          }
-          const grpcProducts = response.getProductsList().map((product) => ({
-            id: product.getId(),
-            name: product.getName(),
-            des: product.getDes(),
-            price: product.getPrice(),
-          }));
-          setProducts(grpcProducts);
-        });
+        // const request = new productsPb.Empty()
+        // client.getProducts(request, {}, (err, response) => {
+        //   if (err) {
+        //     console.error('Lỗi khi lấy sản phẩm qua gRPC:', err);
+        //     return;
+        //   }
+        //   const grpcProducts = response.getProductsList().map((product) => ({
+        //     id: product.getId(),
+        //     name: product.getName(),
+        //     des: product.getDes(),
+        //     price: product.getPrice(),
+        //   }));
+        //   setProducts(grpcProducts);
+        // });
       }
 
     } catch (error) {
